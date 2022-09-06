@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-app1
+  name: my-app-of-app
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,7 +11,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: helm-guestbook
+    path: my-eks-demo-app
     repoURL: https://github.com/bidgely/iac-terraform.git
     targetRevision: argocd
   syncPolicy:
